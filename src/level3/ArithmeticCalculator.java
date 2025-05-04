@@ -1,9 +1,10 @@
-package level2;
+package level3;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-public class Calculator {
+public class ArithmeticCalculator {
 
     private int num1;
     private int num2;
@@ -63,6 +64,9 @@ public class Calculator {
         return a / b;
     }
 
-
-
+    public List<Integer> printHighResult(int num){
+        return resultList.stream()
+                .filter(result -> result > num)
+                .collect(Collectors.toList());
+    }
 }

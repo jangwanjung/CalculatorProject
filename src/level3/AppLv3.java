@@ -1,14 +1,14 @@
-package level2;
+package level3;
+
+import level2.Calculator;
 
 import java.util.Scanner;
 
-public class AppLv2 {
-
-
+public class AppLv3 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator();
 
         while(true) {
 
@@ -20,11 +20,12 @@ public class AppLv2 {
             System.out.print("사칙 연산 기호를 입력하세요 : ");
             char operator = sc.next().charAt(0);
 
-            calculator.setCalculator(num1, num2);
+            arithmeticCalculator.setCalculator(num1, num2);
 
             try{
-                int result = calculator.calculate(operator);
+                int result = arithmeticCalculator.calculate(operator);
                 System.out.println("result = " + result);
+                System.out.println("result 값보다 큰 결과값 출력 : "+ arithmeticCalculator.printHighResult(result));
 
 
 
@@ -36,10 +37,10 @@ public class AppLv2 {
 
 
 
-                if (answer2.equals("yes")) calculator.removeResult();
+                if (answer2.equals("yes")) arithmeticCalculator.removeResult();
 
                 if (answer.equals("exit")) {
-                    System.out.println("연산결과 : " + calculator.getResultList());
+                    System.out.println("연산결과 : " + arithmeticCalculator.getResultList());
                     break;
                 }
             } catch (IllegalArgumentException e) {
